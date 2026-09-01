@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FootAll - Foot Therapy | Kolkata</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spa: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            dark: '#0f291e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-spa-100 selection:text-spa-800">
+
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-spa-900 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium flex flex-col sm:flex-row justify-center items-center gap-2">
+        <span><i class="fa-solid fa-clock mr-1"></i> Open Today: 11:00 AM – 8:00 PM</span>
+        <span class="hidden sm:inline">|</span>
+        <span><i class="fa-solid fa-phone mr-1"></i> Call us: <a href="tel:09831428224" class="underline hover:text-spa-100 font-semibold">098314 28224</a></span>
+    </div>
+
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <!-- SVG Recreation of Uploaded FootAll Logo -->
+                <svg class="h-10 w-auto" viewBox="0 0 280 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#76b900">
+                        <ellipse cx="20" cy="18" rx="4.5" ry="6.5" transform="rotate(-15 20 18)"/>
+                        <ellipse cx="32" cy="12" rx="4.5" ry="7" transform="rotate(-5 32 12)"/>
+                        <ellipse cx="46" cy="11" rx="4.5" ry="7.5"/>
+                        <ellipse cx="60" cy="13" rx="4.5" ry="7" transform="rotate(10 60 13)"/>
+                        <ellipse cx="73" cy="20" rx="4.5" ry="6.5" transform="rotate(25 73 20)"/>
+                        <path d="M22 30C22 23 28 20 38 20C55 20 68 28 72 42C76 56 65 67 48 67C30 67 18 55 22 42C23 38 22 34 22 30Z"/>
+                    </g>
+                    <path d="M42 45C42 45 35 48 33 40C31 32 40 28 40 28C40 28 47 36 42 45Z" fill="#ffffff" opacity="0.9"/>
+                    <path d="M41 43C41 43 37 45 36 40C35 35 40 32 40 32C40 32 44 37 41 43Z" fill="#76b900"/>
+                    <text x="95" y="42" font-family="Georgia, serif" font-size="34" font-weight="normal" fill="#558022">foot<tspan font-weight="bold" fill="#76b900">All</tspan></text>
+                    <text x="96" y="58" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#76b900" letter-spacing="4">FOOT THERAPY</text>
+                    <line x1="96" y1="65" x2="225" y2="65" stroke="#76b900" stroke-width="2.5"/>
+                </svg>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-spa-700 transition">About</a>
+                <a href="#services" class="hover:text-spa-700 transition">Services</a>
+                <a href="#reviews" class="hover:text-spa-700 transition">Reviews</a>
+                <a href="#location" class="hover:text-spa-700 transition">Location</a>
+            </div>
+
+
+            <div class="flex items-center gap-3">
+                <a href="tel:09831428224" class="md:hidden bg-spa-700 text-white p-2.5 rounded-full text-sm shadow">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <button onclick="openBookingModal()" class="bg-spa-700 hover:bg-spa-800 text-white px-5 py-2.5 rounded-full font-medium text-sm transition shadow-md shadow-spa-700/20 active:scale-95 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar-check"></i> <span class="hidden sm:inline">Book Session</span><span class="sm:hidden">Book</span>
+                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3 shadow-lg">
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1">About</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1">Services</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1">Reviews</a>
+            <a href="#location" onclick="toggleMobileMenu()" class="block text-slate-700 font-medium py-1">Location & Hours</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <header class="relative bg-gradient-to-b from-spa-50 via-white to-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+        <div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#16a34a_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-3xl mx-auto relative z-10">
+            <!-- Google Rating Badge -->
+            <div class="inline-flex items-center gap-2 bg-white border border-slate-200 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium text-slate-700 shadow-sm mb-6">
+                <div class="flex text-amber-400">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="font-bold text-slate-900">4.9</span>
+                <span class="text-slate-400">|</span>
+                <span class="text-slate-600">Google Reviews</span>
+            </div>
+
+
+            <h1 class="text-3xl sm:text-6xl font-extrabold text-spa-900 tracking-tight leading-tight mb-6">
+                Pampering that begins at your feet, and ends at your soul.
+            </h1>
+
+
+            <p class="text-base sm:text-lg text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Welcome to Kolkata's premier foot massage and reflexology parlor. Experience total deep-relaxation, immaculate hygiene, and professional rejuvenation in East Kolkata Township.
+            </p>
+
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:09831428224" class="bg-spa-700 hover:bg-spa-800 text-white font-medium px-8 py-3.5 rounded-full shadow-lg shadow-spa-700/30 transition flex items-center justify-center gap-2 text-base">
+                    <i class="fa-solid fa-phone"></i> Call 098314 28224
+                </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Building+7,+462,+Rajdanga+Main+Road,+beside+HDFC+Bank,+Sector+G,+East+Kolkata+Twp,+Kolkata,+West+Bengal+700107" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-medium px-8 py-3.5 rounded-full transition flex items-center justify-center gap-2 text-base shadow-sm">
+                    <i class="fa-solid fa-location-dot text-spa-700"></i> Get Directions
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-spa-700 font-bold uppercase tracking-wider text-xs bg-spa-50 px-3 py-1 rounded-full">About FootAll</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-spa-900 mt-4 mb-6">Your Ultimate Sanctuary for Foot Reflexology in Kolkata</h2>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        "Please do visit at our FootAll that is indulged in luxurious pampering that begins at your feet and ends at your soul. FootAll offers a wide range of services based on foot reflexology."
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mb-8">
+                        Located conveniently beside HDFC Bank in Rajdanga Main Road, we pride ourselves on maintaining ultra-hygienic standards—from sterilized equipment and pristine towels to clean, specialized garments provided for every guest.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="text-spa-700 font-bold text-2xl mb-1"><i class="fa-solid fa-shield-heart"></i></div>
+                            <h3 class="font-bold text-slate-900 text-sm">100% Hygienic</h3>
+                            <p class="text-xs text-slate-500 mt-1">Single-use garments & sanitized towels.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="text-spa-700 font-bold text-2xl mb-1"><i class="fa-solid fa-face-smile-beam"></i></div>
+                            <h3 class="font-bold text-slate-900 text-sm">Relaxing Vibe</h3>
+                            <p class="text-xs text-slate-500 mt-1">Calm, peaceful & soothing ambiance.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Visual Card Showcase -->
+                <div class="bg-gradient-to-br from-spa-900 to-spa-dark rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 relative z-10">Quick Details</h3>
+                    <ul class="space-y-4 text-slate-200 relative z-10 text-sm sm:text-base">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-spa-400 mt-1 shrink-0"></i>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Building+7,+462,+Rajdanga+Main+Road,+beside+HDFC+Bank,+Sector+G,+East+Kolkata+Twp,+Kolkata,+West+Bengal+700107" target="_blank" rel="noopener noreferrer" class="hover:underline text-slate-200">
+                                Building 7, 462, Rajdanga Main Road, beside HDFC Bank, Sector G, East Kolkata Twp, Kolkata, West Bengal 700107
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-spa-400 shrink-0"></i>
+                            <a href="tel:09831428224" class="hover:underline font-bold text-white">098314 28224</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-clock text-spa-400 shrink-0"></i>
+                            <span>Open Daily · Closes 8:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-spa-400 block">Popular Times Note</span>
+                            <span class="text-sm font-medium">11:00 AM is usually not too busy</span>
+                        </div>
+                        <span class="bg-spa-800 text-spa-100 px-3 py-1 rounded-full text-xs font-semibold">Quiet Hours</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-spa-700 font-bold uppercase tracking-wider text-xs bg-spa-100 px-3 py-1 rounded-full">Our Menu</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-spa-900 mt-4 mb-4">Rejuvenation Services</h2>
+                <p class="text-slate-600">Tailored treatments designed to relieve muscle strain, refresh your skin, and bring harmony back to your step.</p>
+            </div>
+
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:shadow-md transition group">
+                    <div class="w-12 h-12 rounded-xl bg-spa-50 text-spa-700 flex items-center justify-center text-xl mb-6 group-hover:bg-spa-700 group-hover:text-white transition">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Foot Reflexology</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">Targeted pressure point massages focused on relieving chronic fatigue, stimulating circulation, and deep relaxation.</p>
+                    <button onclick="openBookingModal()" class="text-spa-700 font-semibold text-sm inline-flex items-center gap-1 hover:underline">Book Session <i class="fa-solid fa-arrow-right text-xs"></i></button>
+                </div>
+
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:shadow-md transition group">
+                    <div class="w-12 h-12 rounded-xl bg-spa-50 text-spa-700 flex items-center justify-center text-xl mb-6 group-hover:bg-spa-700 group-hover:text-white transition">
+                        <i class="fa-solid fa-hand-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Pedicure & Foot Care</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">Pampering exfoliating treatments, nail care, and softening procedures executed with pristine hygienic garments and tools.</p>
+                    <button onclick="openBookingModal()" class="text-spa-700 font-semibold text-sm inline-flex items-center gap-1 hover:underline">Book Session <i class="fa-solid fa-arrow-right text-xs"></i></button>
+                </div>
+
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 hover:shadow-md transition group">
+                    <div class="w-12 h-12 rounded-xl bg-spa-50 text-spa-700 flex items-center justify-center text-xl mb-6 group-hover:bg-spa-700 group-hover:text-white transition">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Facial Treatments</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">Revitalizing facial sessions designed to cleanse pores, refresh complexion, and compliment your day of absolute self-care.</p>
+                    <button onclick="openBookingModal()" class="text-spa-700 font-semibold text-sm inline-flex items-center gap-1 hover:underline">Book Session <i class="fa-solid fa-arrow-right text-xs"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-16 sm:py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-spa-700 font-bold uppercase tracking-wider text-xs bg-spa-50 px-3 py-1 rounded-full">Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-spa-900 mt-4 mb-4">What Our Clients Say</h2>
+                <p class="text-slate-600">Real feedback from verified Google reviews.</p>
+            </div>
+
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 italic text-sm leading-relaxed mb-6">"Availed the service of pedicure and facial, services are excellent"</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-200">
+                        <div class="w-10 h-10 rounded-full bg-spa-200 text-spa-800 font-bold flex items-center justify-center text-sm">SG</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Sagnik Ghosh</h4>
+                            <span class="text-xs text-slate-500">Google Reviewer</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 italic text-sm leading-relaxed mb-6">"The place is clean and offers a relaxing vibe."</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-200">
+                        <div class="w-10 h-10 rounded-full bg-spa-200 text-spa-800 font-bold flex items-center justify-center text-sm">TM</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Titu Mama</h4>
+                            <span class="text-xs text-slate-500">Google Reviewer</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 italic text-sm leading-relaxed mb-6">"Everything is so hygienic, from the pants provided to the towels."</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-200">
+                        <div class="w-10 h-10 rounded-full bg-spa-200 text-spa-800 font-bold flex items-center justify-center text-sm">KB</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Krishnendu Biswas</h4>
+                            <span class="text-xs text-slate-500">Google Reviewer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Location & Operating Hours Section -->
+    <section id="location" class="py-16 sm:py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-spa-400 font-bold uppercase tracking-wider text-xs bg-spa-900/50 border border-spa-700/50 px-3 py-1 rounded-full">Find Us</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mt-4 mb-6">Visit Our Parlor in Kolkata</h2>
+                    <p class="text-slate-300 mb-8 leading-relaxed">We are easily accessible in East Kolkata Township. Step away from the hustle and bustle of the city straight into serenity.</p>
+
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-spa-800 text-spa-200 flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg">Address</h3>
+                                <p class="text-slate-300 text-sm mt-1">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Building+7,+462,+Rajdanga+Main+Road,+beside+HDFC+Bank,+Sector+G,+East+Kolkata+Twp,+Kolkata,+West+Bengal+700107" target="_blank" rel="noopener noreferrer" class="hover:underline text-spa-200">
+                                        Building 7, 462, Rajdanga Main Road, beside HDFC Bank, Sector G, East Kolkata Twp, Kolkata, West Bengal 700107
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-spa-800 text-spa-200 flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg">Opening Hours</h3>
+                                <p class="text-slate-300 text-sm mt-1">Monday – Sunday: 11:00 AM – 8:00 PM</p>
+                                <p class="text-xs text-spa-400 mt-1"><i class="fa-solid fa-circle-info mr-1"></i> Usually less busy around 11:00 AM.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-spa-800 text-spa-200 flex items-center justify-center shrink-0 mt-1"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h3 class="font-bold text-lg">Contact Phone</h3>
+                                <p class="text-slate-300 text-sm mt-1"><a href="tel:09831428224" class="underline font-bold text-white hover:text-spa-300">098314 28224</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bg-slate-800 border border-slate-700 rounded-3xl p-8 text-center shadow-xl">
+                    <div class="w-16 h-16 bg-spa-800 text-spa-300 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl shadow-inner">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ready to Relax?</h3>
+                    <p class="text-slate-300 text-sm mb-6">Get turn-by-turn directions directly on Google Maps or give us a quick call.</p>
+                    <div class="space-y-3">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Building+7,+462,+Rajdanga+Main+Road,+beside+HDFC+Bank,+Sector+G,+East+Kolkata+Twp,+Kolkata,+West+Bengal+700107" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-spa-600 hover:bg-spa-700 text-white font-medium px-6 py-3.5 rounded-full transition shadow-lg w-full">
+                            <i class="fa-solid fa-location-arrow"></i> Open in Google Maps
+                        </a>
+                        <a href="tel:09831428224" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 font-medium px-6 py-3.5 rounded-full transition shadow w-full">
+                            <i class="fa-solid fa-phone text-spa-700"></i> Call: 098314 28224
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <span class="text-white font-bold tracking-tight">FootAll - Foot Therapy</span>
+            </div>
+            <p class="text-xs text-center md:text-left">© 2026 FootAll Foot Therapy, Kolkata. All rights reserved.</p>
+            <div class="flex items-center space-x-4">
+                <a href="tel:09831428224" class="hover:text-white transition"><i class="fa-solid fa-phone"></i> 098314 28224</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-spa-50 text-spa-700 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">Book Your Session</h3>
+                <p class="text-xs text-slate-500 mt-1">Call us directly for instant slot confirmation.</p>
+            </div>
+
+
+            <div class="space-y-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-center mb-6">
+                <p class="text-sm text-slate-700 font-medium">For prompt bookings or custom requests, please call our front desk:</p>
+                <a href="tel:09831428224" class="inline-flex items-center justify-center gap-2 bg-spa-700 text-white font-bold px-6 py-3 rounded-full text-base shadow hover:bg-spa-800 transition">
+                    <i class="fa-solid fa-phone"></i> 098314 28224
+                </a>
+            </div>
+
+
+            <div class="text-xs text-slate-400 text-center">
+                📍 Rajdanga Main Road, Kolkata · Open until 8:00 PM
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        function openBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target == modal) {
+                closeBookingModal();
+            }
+        }
+    </script>
+</body>
+</html>
