@@ -52,13 +52,36 @@ class="flex items-center shrink-0 hover:opacity-90 transition-opacity">
 <img src="FFTLogo.png" alt="FootAll Logo" class="h-36 sm:h-44 w-auto object-contain">
 </a>
 
-<!-- 2. Navigation Links (Increased Size to text-lg / font-semibold) -->
+ <!-- Navigation Links with Added Spacing (gap-4 sm:gap-6) -->
+<nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
+  <a href="#about" class="hover:text-spa-700 transition">About</a>
+  <a href="#services" class="hover:text-spa-700 transition">Services</a>
+  <a href="#reviews" class="hover:text-spa-700 transition">Reviews</a>
+  
+  <!-- Location Link -->
+  <a href="#location" class="hover:text-spa-700 transition flex items-center gap-1 text-slate-700">
+    <i class="fa-solid fa-location-dot text-spa-700"></i> Location
+  </a>
+
+  <!-- WhatsApp Button (Separated with ml-2 / extra spacing) -->
+  <a href="https://wa.me/919831428224?text=Hello%20FootAll%20Therapy,%20I%20would%20like%20to%20book%20a%20session." target="_blank" rel="noopener noreferrer" class="ml-2 inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-4 py-2 rounded-full font-semibold transition shadow-sm hover:shadow">
+    <i class="fa-brands fa-whatsapp text-lg"></i>
+    <span>Chat with us</span>
+  </a>
+
+  <!-- Book Session CTA -->
+  <a href="tel:09831428224" class="bg-spa-700 hover:bg-spa-800 text-white px-5 py-2 rounded-full transition font-medium shadow-md shadow-spa-700/20">
+    <i class="fa-regular fa-calendar-check mr-1.5"></i> Book Session
+  </a>
+</nav> 
+
+<!-- 2. Navigation Links (Increased Size to text-lg / font-semibold) 
 <div class="hidden md:flex items-center gap-8 text-lg font-semibold text-slate-700">
 <a href="#about" class="hover:text-spa-700 transition-colors">About</a>
 <a href="#services" class="hover:text-spa-700 transition-colors">Services</a>
 <a href="#reviews" class="hover:text-spa-700 transition-colors">Reviews</a>
 <a href="#location" class="hover:text-spa-700 transition-colors">Location</a>
-</div>
+</div>-->
 
 <!-- 3. Actions / Book Session Button 
 <div class="flex items-center gap-3">
@@ -144,9 +167,55 @@ Welcome to Kolkata's premier foot massage and reflexology parlor. Experience tot
     </p>
   </div>
 
+  <!-- Gallery Section (Manual/Auto Scroll with Hover Pause & Navigation Arrows) -->
+<section class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 relative group">
+  <!-- Left Navigation Arrow -->
+  <button id="gallery-prev-btn" onclick="scrollGallery(-1)" aria-label="Previous image" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-slate-800 w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg border border-slate-200 flex items-center justify-center transition hover:scale-110 focus:outline-none">
+    <i class="fa-solid fa-chevron-left text-lg"></i>
+  </button>
+
+  <!-- Right Navigation Arrow -->
+  <button id="gallery-next-btn" onclick="scrollGallery(1)" aria-label="Next image" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-slate-800 w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg border border-slate-200 flex items-center justify-center transition hover:scale-110 focus:outline-none">
+    <i class="fa-solid fa-chevron-right text-lg"></i>
+  </button>
+
+  <!-- Gallery Horizontal Scroll Container -->
+  <div id="gallery-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none py-4 px-2 scroll-smooth">
+    <div onclick="openLightbox(0)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group/item relative snap-center">
+      <img src="FFTEntrance.png" alt="FootAll Therapy Entrance" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover/item:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
+    </div>
+
+    <div onclick="openLightbox(1)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group/item relative snap-center">
+      <img src="FFTChair.png" alt="FootAll Therapy Interior 1" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover/item:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
+    </div>
+
+    <div onclick="openLightbox(2)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group/item relative snap-center">
+      <img src="FFTSmallPlant.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover/item:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
+    </div>
+
+    <div onclick="openLightbox(3)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group/item relative snap-center">
+      <img src="FFTPartition.png" alt="FootAll Therapy Interior 3" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover/item:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
+    </div>
+
+    <div onclick="openLightbox(4)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group/item relative snap-center">
+      <img src="FFTRosePetals.png" alt="FootAll Therapy Interior 4" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover/item:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
+    </div>
+
+    <div onclick="openLightbox(5)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group/item relative snap-center">
+      <img src="FFTBigPlant.png" alt="FootAll Therapy Interior 5" class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300" />
+      <div class="absolute inset-0 bg-black/20 opacity-0 group-hover/item:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
+    </div>
+  </div>
+</section>
+
   
    <!-- Gallery Section (CSS Auto-Slide) -->
-<!-- Gallery Section (CSS Auto-Slide + Interactive Modal Viewer) -->
+<!-- Gallery Section (CSS Auto-Slide + Interactive Modal Viewer) 
 <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 overflow-hidden">
   <style>
     @keyframes scroll {
@@ -166,7 +235,7 @@ Welcome to Kolkata's premier foot massage and reflexology parlor. Experience tot
 
   <div class="relative w-full overflow-hidden">
     <div id="auto-slide-track" class="animate-auto-slide gap-6 py-4">
-      <!-- Original Set -->
+      <!-- Original Set 
       <div onclick="openLightbox(0)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
         <img src="FFTEntrance.png" alt="FootAll Therapy Entrance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
@@ -192,7 +261,7 @@ Welcome to Kolkata's premier foot massage and reflexology parlor. Experience tot
         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
 
-      <!-- Duplicated Set for Loop -->
+      <!-- Duplicated Set for Loop 
       <div onclick="openLightbox(0)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
         <img src="FFTEntrance.png" alt="FootAll Therapy Entrance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
@@ -219,7 +288,7 @@ Welcome to Kolkata's premier foot massage and reflexology parlor. Experience tot
       </div>
     </div>
   </div>
-</section>
+</section>-->
 
 <!-- Image Lightbox Modal with Interactive Slider -->
 <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 hidden backdrop-blur-md flex flex-col items-center justify-between p-4 sm:p-8 select-none">
