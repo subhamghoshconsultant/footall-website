@@ -138,6 +138,7 @@ Welcome to Kolkata's premier foot massage and reflexology parlor. Experience tot
 
   
    <!-- Gallery Section (CSS Auto-Slide) -->
+<!-- Gallery Section (CSS Auto-Slide + Interactive Modal Viewer) -->
 <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 overflow-hidden">
   <style>
     @keyframes scroll {
@@ -149,55 +150,102 @@ Welcome to Kolkata's premier foot massage and reflexology parlor. Experience tot
       width: max-content;
       animation: scroll 25s linear infinite;
     }
-    .animate-auto-slide:hover {
-      animation-play-state: paused; /* Pauses when user hovers over an image */
+    .animate-auto-slide:hover,
+    .animate-auto-slide.paused {
+      animation-play-state: paused;
     }
   </style>
 
   <div class="relative w-full overflow-hidden">
-    <div class="animate-auto-slide gap-6 py-4">
-      <!-- Original Set of Images -->
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTEntrance.png" alt="FootAll Therapy Entrance" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+    <div id="auto-slide-track" class="animate-auto-slide gap-6 py-4">
+      <!-- Original Set -->
+      <div onclick="openLightbox(0)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTEntrance.png" alt="FootAll Therapy Entrance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTChair.png" alt="FootAll Therapy Interior 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <div onclick="openLightbox(1)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTChair.png" alt="FootAll Therapy Interior 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTSmallPlant.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <div onclick="openLightbox(2)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTSmallPlant.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTPartition.png" alt="FootAll Therapy Interior 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <div onclick="openLightbox(3)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTPartition.png" alt="FootAll Therapy Interior 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTRosePetals.png" alt="FootAll Therapy Interior 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <div onclick="openLightbox(4)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTRosePetals.png" alt="FootAll Therapy Interior 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTBigPlant.png" alt="FootAll Therapy Interior 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <div onclick="openLightbox(5)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTBigPlant.png" alt="FootAll Therapy Interior 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
 
-      <!-- Duplicated Set for Seamless Infinite Loop -->
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTEntrance.png" alt="FootAll Therapy Entrance" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <!-- Duplicated Set for Loop -->
+      <div onclick="openLightbox(0)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTEntrance.png" alt="FootAll Therapy Entrance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTChair.png" alt="FootAll Therapy Interior 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <div onclick="openLightbox(1)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTChair.png" alt="FootAll Therapy Interior 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTSmallPlant.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <div onclick="openLightbox(2)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTSmallPlant.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTPartition.png" alt="FootAll Therapy Interior 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <div onclick="openLightbox(3)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTPartition.png" alt="FootAll Therapy Interior 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTRosePetals.png" alt="FootAll Therapy Interior 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <div onclick="openLightbox(4)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTRosePetals.png" alt="FootAll Therapy Interior 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
-      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
-        <img src="FFTBigPlant.png" alt="FootAll Therapy Interior 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <div onclick="openLightbox(5)" class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0 cursor-pointer group relative">
+        <img src="FFTBigPlant.png" alt="FootAll Therapy Interior 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-lg font-semibold"><i class="fa-solid fa-magnifying-glass-plus mr-2"></i> View Image</div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Image Lightbox Modal with Interactive Slider -->
+<div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 hidden backdrop-blur-md flex flex-col items-center justify-between p-4 sm:p-8 select-none">
+  <!-- Top Bar: Counter & Close -->
+  <div class="w-full max-w-5xl flex items-center justify-between text-white z-10">
+    <span id="lightboxCounter" class="text-sm font-semibold bg-white/10 px-3 py-1 rounded-full border border-white/20">1 / 6</span>
+    <button onclick="closeLightbox()" class="text-white hover:text-red-400 text-2xl p-2 rounded-full transition focus:outline-none">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <!-- Main Viewer Container -->
+  <div class="relative w-full max-w-5xl flex-1 flex items-center justify-center my-4">
+    <!-- Prev Button -->
+    <button onclick="changeLightboxSlide(-1)" class="absolute left-2 sm:left-4 z-20 text-white bg-black/50 hover:bg-black/80 w-12 h-12 rounded-full flex items-center justify-center text-xl transition focus:outline-none">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- Main Image & Caption -->
+    <div class="flex flex-col items-center justify-center max-h-full">
+      <img id="lightboxImage" src="" alt="Selected Preview" class="max-h-[65vh] sm:max-h-[75vh] w-auto max-w-full rounded-xl shadow-2xl object-contain transition-all duration-300" />
+      <p id="lightboxCaption" class="text-white/80 text-sm sm:text-base mt-4 text-center font-medium"></p>
+    </div>
+
+    <!-- Next Button -->
+    <button onclick="changeLightboxSlide(1)" class="absolute right-2 sm:right-4 z-20 text-white bg-black/50 hover:bg-black/80 w-12 h-12 rounded-full flex items-center justify-center text-xl transition focus:outline-none">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- Bottom Thumbnails Bar -->
+  <div class="w-full max-w-2xl flex items-center justify-center gap-3 overflow-x-auto py-2 px-4 z-10" id="lightboxThumbnails">
+  </div>
+</div>
 
 <!-- About Section -->
 <section id="about" class="py-16 sm:py-24 bg-white border-t border-slate-100">
