@@ -136,41 +136,66 @@ Welcome to Kolkata's premier foot massage and reflexology parlor. Experience tot
     </p>
   </div>
 
-  <!-- Gallery Section -->
-   <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8">
-  <!-- Horizontal Sliding Carousel -->
-  <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none py-4 px-1 -mx-1">
-    
-    <!-- Image 1 -->
-    <div class="flex-none w-72 sm:w-96 aspect-[4/3] snap-start rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100">
-      <img src="FFTEntrance.png" alt="FootAll Therapy Entrance" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-    </div>
+  
+   <!-- Gallery Section (CSS Auto-Slide) -->
+<section class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-8 overflow-hidden">
+  <style>
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-auto-slide {
+      display: flex;
+      width: max-content;
+      animation: scroll 25s linear infinite;
+    }
+    .animate-auto-slide:hover {
+      animation-play-state: paused; /* Pauses when user hovers over an image */
+    }
+  </style>
 
-    <!-- Image 2 -->
-    <div class="flex-none w-72 sm:w-96 aspect-[4/3] snap-start rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100">
-      <img src="FFTChair.png" alt="FootAll Therapy Interior 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-    </div>
+  <div class="relative w-full overflow-hidden">
+    <div class="animate-auto-slide gap-6 py-4">
+      <!-- Original Set of Images -->
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTEntrance.png" alt="FootAll Therapy Entrance" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTChair.png" alt="FootAll Therapy Interior 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTSmallPlant.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTPartition.png" alt="FootAll Therapy Interior 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTRosePetals.png" alt="FootAll Therapy Interior 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTBigPlant.png" alt="FootAll Therapy Interior 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
 
-    <!-- Image 3 -->
-    <div class="flex-none w-72 sm:w-96 aspect-[4/3] snap-start rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100">
-      <img src="FFTSmallPlant.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      <!-- Duplicated Set for Seamless Infinite Loop -->
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTEntrance.png" alt="FootAll Therapy Entrance" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTChair.png" alt="FootAll Therapy Interior 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTSmallPlant.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTPartition.png" alt="FootAll Therapy Interior 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTRosePetals.png" alt="FootAll Therapy Interior 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
+      <div class="w-72 sm:w-96 aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 shrink-0">
+        <img src="FFTBigPlant.png" alt="FootAll Therapy Interior 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+      </div>
     </div>
-
-     <!-- Image 4 -->
-    <div class="flex-none w-72 sm:w-96 aspect-[4/3] snap-start rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100">
-      <img src="FFTPartition.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-    </div>
-
-     <!-- Image 5 -->
-    <div class="flex-none w-72 sm:w-96 aspect-[4/3] snap-start rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100">
-      <img src="FFTRosePetals.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-    </div>
-
-     <!-- Image 6 -->
-    <div class="flex-none w-72 sm:w-96 aspect-[4/3] snap-start rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100">
-      <img src="FFTBigPlant.png" alt="FootAll Therapy Interior 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-    </div>
-
   </div>
 </section>
 
