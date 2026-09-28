@@ -8,17 +8,17 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
-theme: {
-extend: {
-colors: {
-spa: {
-50: '#f0fdf4',
-100: '#dcfce7',
-600: '#16a34a',
-700: '#15803d',
-800: '#166534',
-900: '#14532d',
-dark: '#0f291e'
+    theme: {
+      extend: {
+        colors: {
+          spa: {
+            50: '#f0f9f4',   /* Very light green background */
+            100: '#dc3e7',  /* Soft pastel mint */
+            600: '#15803d',  /* Emerald green */
+            700: '#14532d',  /* Dark forest green */
+            800: '#0f3d21',  /* Deeper dark green */
+            900: '#0a2916',  /* Darkest deep green */
+            dark: '#05140b'
 }
 }
 }
@@ -28,7 +28,7 @@ dark: '#0f291e'
 <!-- FontAwesome for Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-spa-100 selection:text-spa-800">
+<body class="bg-spa-50 text-slate-900 font-sans antialiased selection:bg-spa-700 selection:text-white">
 
 
 <!-- Top Announcement Bar -->
@@ -152,7 +152,7 @@ class="flex items-center shrink-0 hover:opacity-90 transition-opacity">
 
 
 <!-- Hero Section -->
-<header class="relative bg-gradient-to-b from-spa-50 via-white to-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+<header class="relative bg-gradient-to-b from-spa-100 via-spa-50 to-spa-50 py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
 <div class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#16a34a_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
 <div class="max-w-3xl mx-auto relative z-10">
@@ -717,7 +717,7 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
 <p class="text-xs text-slate-500 mt-1">Call us directly for instant slot confirmation.</p>
 </div>
 
-
+<input type="text" id="name" required class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-spa-700 focus:border-transparent outline-none text-slate-800" placeholder="e.g. Rahul Sharma">
 <div class="space-y-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-center mb-6">
 <p class="text-sm text-slate-700 font-medium">For prompt bookings or custom requests, please call our front desk:</p>
 <a href="tel:09831428224" class="inline-flex items-center justify-center gap-2 bg-spa-700 text-white font-bold px-6 py-3 rounded-full text-base shadow hover:bg-spa-800 transition">
@@ -755,6 +755,17 @@ if (event.target == modal) {
 closeBookingModal();
 }
 }
+ <!-- REPLACE LINES 758 - 760 WITH THIS -->
+<script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 10);
+  });
+</script>
 </script>
 </body>
 </html>
