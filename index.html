@@ -97,12 +97,13 @@ class="flex items-center shrink-0 hover:opacity-90 transition-opacity">
   </div>
 
   <!-- Mobile Dropdown Menu Drawer -->
-  <a href="#about" onclick="smoothNavigate(event, 'about')" class="block text-slate-800 hover:text-spa-700 font-bold text-lg py-2 border-b border-slate-100">About</a>
-<a href="#services" onclick="smoothNavigate(event, 'services')" class="block text-slate-800 hover:text-spa-700 font-bold text-lg py-2 border-b border-slate-100">Services</a>
-<a href="#reviews" onclick="smoothNavigate(event, 'reviews')" class="block text-slate-800 hover:text-spa-700 font-bold text-lg py-2 border-b border-slate-100">Reviews</a>
-<a href="#location" onclick="smoothNavigate(event, 'location')" class="block text-slate-800 hover:text-spa-700 font-bold text-lg py-2 border-b border-slate-100">
-  <i class="fa-solid fa-location-dot text-spa-700 mr-2"></i> Location
-</a>
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-100 px-6 py-4 space-y-3 shadow-lg">
+    <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-800 hover:text-spa-700 font-bold text-lg py-2 border-b border-slate-100">About</a>
+    <a href="#services" onclick="toggleMobileMenu()" class="block text-slate-800 hover:text-spa-700 font-bold text-lg py-2 border-b border-slate-100">Services</a>
+    <a href="#reviews" onclick="toggleMobileMenu()" class="block text-slate-800 hover:text-spa-700 font-bold text-lg py-2 border-b border-slate-100">Reviews</a>
+    <a href="#location" onclick="toggleMobileMenu()" class="block text-slate-800 hover:text-spa-700 font-bold text-lg py-2 border-b border-slate-100">
+      <i class="fa-solid fa-location-dot text-spa-700 mr-2"></i> Location
+    </a>
 
     <!-- Full Action Buttons inside Mobile Menu -->
     <div class="pt-2 flex flex-col gap-3">
