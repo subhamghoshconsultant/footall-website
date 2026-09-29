@@ -118,6 +118,45 @@ class="flex items-center shrink-0 hover:opacity-90 transition-opacity">
     </div>
   </div>
 
+    <!-- Script -->
+<script>
+    
+    function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if (menu) {
+      menu.classList.toggle('hidden');
+    }
+  }
+
+  function smoothNavigate(event, targetId) {
+    event.preventDefault();
+    toggleMobileMenu();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function openBookingModal() {
+    const modal = document.getElementById('bookingModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeBookingModal() {
+    const modal = document.getElementById('bookingModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('bookingModal');
+    if (event.target == modal) {
+      closeBookingModal();
+    }
+  }
+</script>
+
 <!-- 2. Navigation Links (Increased Size to text-lg / font-semibold) 
 <div class="hidden md:flex items-center gap-8 text-lg font-semibold text-slate-700">
 <a href="#about" class="hover:text-spa-700 transition-colors">About</a>
@@ -734,43 +773,6 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
 </div>
 
 
-<!-- Script -->
-<script>
-    
-    function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    if (menu) {
-      menu.classList.toggle('hidden');
-    }
-  }
 
-  function smoothNavigate(event, targetId) {
-    event.preventDefault();
-    toggleMobileMenu();
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
-  function openBookingModal() {
-    const modal = document.getElementById('bookingModal');
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-  }
-
-  function closeBookingModal() {
-    const modal = document.getElementById('bookingModal');
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-  }
-
-  window.onclick = function(event) {
-    const modal = document.getElementById('bookingModal');
-    if (event.target == modal) {
-      closeBookingModal();
-    }
-  }
-</script>
 </body>
 </html>
