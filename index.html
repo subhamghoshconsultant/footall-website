@@ -736,9 +736,21 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
 
 <!-- Script -->
 <script>
-  function toggleMobileMenu() {
+    
+    function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('hidden');
+    if (menu) {
+      menu.classList.toggle('hidden');
+    }
+  }
+
+  function smoothNavigate(event, targetId) {
+    event.preventDefault();
+    toggleMobileMenu();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   function openBookingModal() {
