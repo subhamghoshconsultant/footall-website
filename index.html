@@ -641,6 +641,48 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
         </optgroup>
       </select>
 
+      <!-- Time and Duration Selection (Grid Layout) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        
+        <!-- Time Dropdown -->
+        <div>
+          <label for="timeDropdown" class="block text-left text-sm font-bold text-spa-900 mb-2">Preferred Time:</label>
+          <select id="timeDropdown" class="w-full p-3 rounded-xl border border-slate-300 text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-spa-700 shadow-sm">
+            <option value="">-- Select Time --</option>
+            <option value="10:30 AM">10:30 AM</option>
+            <option value="11:00 AM">11:00 AM</option>
+            <option value="11:30 AM">11:30 AM</option>
+            <option value="12:00 PM">12:00 PM</option>
+            <option value="12:30 PM">12:30 PM</option>
+            <option value="1:00 PM">1:00 PM</option>
+            <option value="1:30 PM">1:30 PM</option>
+            <option value="2:00 PM">2:00 PM</option>
+            <option value="2:30 PM">2:30 PM</option>
+            <option value="3:00 PM">3:00 PM</option>
+            <option value="3:30 PM">3:30 PM</option>
+            <option value="4:00 PM">4:00 PM</option>
+            <option value="4:30 PM">4:30 PM</option>
+            <option value="5:00 PM">5:00 PM</option>
+            <option value="5:30 PM">5:30 PM</option>
+            <option value="6:00 PM">6:00 PM</option>
+            <option value="6:30 PM">6:30 PM</option>
+          </select>
+        </div>
+
+        <!-- Duration Dropdown -->
+        <div>
+          <label for="durationDropdown" class="block text-left text-sm font-bold text-spa-900 mb-2">Duration:</label>
+          <select id="durationDropdown" class="w-full p-3 rounded-xl border border-slate-300 text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-spa-700 shadow-sm">
+            <option value="">-- Select Duration --</option>
+            <option value="30 mins">30 mins</option>
+            <option value="60 mins">60 mins</option>
+            <option value="90 mins">90 mins</option>
+            <option value="120 mins">120 mins</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Booking Button -->
       <button onclick="bookService()" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
         <i class="fa-brands fa-whatsapp text-xl"></i> Book via WhatsApp
       </button>
@@ -649,17 +691,24 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
 
   <script>
     function bookService() {
-      const dropdown = document.getElementById('serviceDropdown');
-      const selectedService = dropdown.value;
+      const serviceDropdown = document.getElementById('serviceDropdown');
+      const timeDropdown = document.getElementById('timeDropdown');
+      const durationDropdown = document.getElementById('durationDropdown');
       
-      if (!selectedService) {
-        alert('Please select a service from the dropdown menu first.');
+      const selectedService = serviceDropdown.value;
+      const selectedTime = timeDropdown.value;
+      const selectedDuration = durationDropdown.value;
+      
+      if (!selectedService || !selectedTime || !selectedDuration) {
+        alert('Please select a service, preferred time, and duration to book an appointment.');
         return;
       }
 
-      // FootAll Contact Number
-      const phoneNumber = '9831428224';
-      const message = `Hello FootAll, I would like to book an appointment for: ${selectedService}.`;
+      // WhatsApp routing exclusively to the 098314 28224 number
+      const phoneNumber = '919831428224';
+      
+      // Formatting the multi-line message
+      const message = `Hello FootAll, I would like to book an appointment.\n\n*Service:* ${selectedService}\n*Time:* ${selectedTime}\n*Duration:* ${selectedDuration}`;
       
       // Open WhatsApp with pre-filled message
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
