@@ -682,7 +682,7 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
         </div>
       </div>
 
-      <!-- Booking Button -->
+		<!-- Booking Button -->
       <button onclick="bookService()" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
         <i class="fa-brands fa-whatsapp text-xl"></i> Book via WhatsApp
       </button>
@@ -690,25 +690,37 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
   </div>
 
   <script>
+    // Automatically set the minimum date to today so users can't book in the past
+    document.addEventListener("DOMContentLoaded", () => {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById("dateDropdown").setAttribute("min", today);
+    });
+
     function bookService() {
       const serviceDropdown = document.getElementById('serviceDropdown');
+      const dateDropdown = document.getElementById('dateDropdown');
       const timeDropdown = document.getElementById('timeDropdown');
       const durationDropdown = document.getElementById('durationDropdown');
       
       const selectedService = serviceDropdown.value;
+      const selectedDate = dateDropdown.value;
       const selectedTime = timeDropdown.value;
       const selectedDuration = durationDropdown.value;
       
-      if (!selectedService || !selectedTime || !selectedDuration) {
-        alert('Please select a service, preferred time, and duration to book an appointment.');
+      if (!selectedService || !selectedDate || !selectedTime || !selectedDuration) {
+        alert('Please select a service, date, preferred time, and duration to book an appointment.');
         return;
       }
+
+      // Convert date from YYYY-MM-DD to DD-MM-YYYY format for the WhatsApp message
+      const [year, month, day] = selectedDate.split('-');
+      const formattedDate = `${day}-${month}-${year}`;
 
       // WhatsApp routing exclusively to the 098314 28224 number
       const phoneNumber = '919831428224';
       
       // Formatting the multi-line message
-      const message = `Hello FootAll, I would like to book an appointment.\n\n*Service:* ${selectedService}\n*Time:* ${selectedTime}\n*Duration:* ${selectedDuration}`;
+      const message = `Hello FootAll, I would like to book an appointment.\n\n*Service:* ${selectedService}\n*Date:* ${formattedDate}\n*Time:* ${selectedTime}\n*Duration:* ${selectedDuration}`;
       
       // Open WhatsApp with pre-filled message
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -716,6 +728,8 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
     }
   </script>
 </section>
+     
+     
 
 <!-- Example inside a section or card -->
 
