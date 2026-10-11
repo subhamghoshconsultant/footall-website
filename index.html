@@ -592,6 +592,83 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
 </div>
 </section>
 
+	<!-- Service Booking Section -->
+<section class="py-16 bg-white text-center">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+    <h2 class="text-3xl sm:text-4xl font-bold text-spa-900 tracking-tight mb-4">Our Treatments</h2>
+    
+
+    <div class="bg-spa-50 rounded-3xl p-8 border border-spa-100 shadow-sm w-full max-w-lg">
+      <label for="serviceDropdown" class="block text-left text-sm font-bold text-spa-900 mb-2">Select a Service to Book:</label>
+      <select id="serviceDropdown" class="w-full p-3 rounded-xl border border-slate-300 mb-6 text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-spa-700 shadow-sm">
+        <option value="">-- Choose a service --</option>
+        
+        <optgroup label="Foot Rejuvenation">
+          <option value="Aroma Foot Therapy">Aroma Foot Therapy</option>
+          <option value="Head, Neck, Shoulder">Head, Neck, Shoulder</option>
+          <option value="Foot Massage with Head, Neck & Shoulder">Foot Massage with Head, Neck & Shoulder</option>
+          <option value="Aroma Head Therapy">Aroma Head Therapy</option>
+          <option value="Aroma Back Therapy">Aroma Back Therapy</option>
+        </optgroup>
+
+        <optgroup label="Facial & Skin Care">
+          <option value="Aroma Facial">Aroma Facial</option>
+          <option value="Detox Facial">Detox Facial</option>
+          <option value="Insta Glow Facial">Insta Glow Facial</option>
+          <option value="Signature Facial">Signature Facial</option>
+          <option value="Threading">Threading</option>
+        </optgroup>
+
+        <optgroup label="Hands, Nails & Foot Care">
+          <option value="Classic Pedicure">Classic Pedicure</option>
+          <option value="Deluxe Pedicure">Deluxe Pedicure</option>
+          <option value="Signature Pedicure">Signature Pedicure</option>
+          <option value="Rosemary Salt Soak">Rosemary Salt Soak</option>
+          <option value="Classic Manicure">Classic Manicure</option>
+          <option value="Deluxe Manicure">Deluxe Manicure</option>
+          <option value="Signature Manicure">Signature Manicure</option>
+        </optgroup>
+
+        <optgroup label="Waxing">
+          <option value="Half Arms">Half Arms</option>
+          <option value="Full Arms">Full Arms</option>
+          <option value="Under Arms">Under Arms</option>
+          <option value="Half Legs Till Knee">Half Legs Till Knee</option>
+          <option value="Full Legs">Full Legs</option>
+          <option value="Full Face">Full Face</option>
+          <option value="Sidelocks">Sidelocks</option>
+          <option value="Half Back">Half Back</option>
+          <option value="Full Back">Full Back</option>
+        </optgroup>
+      </select>
+
+      <button onclick="bookService()" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+        <i class="fa-brands fa-whatsapp text-xl"></i> Book via WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function bookService() {
+      const dropdown = document.getElementById('serviceDropdown');
+      const selectedService = dropdown.value;
+      
+      if (!selectedService) {
+        alert('Please select a service from the dropdown menu first.');
+        return;
+      }
+
+      // FootAll Contact Number
+      const phoneNumber = '918697931751';
+      const message = `Hello FootAll, I would like to book an appointment for: ${selectedService}.`;
+      
+      // Open WhatsApp with pre-filled message
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</section>
+
 <!-- Example inside a section or card -->
 
 <!-- <div class="p-6">
@@ -710,28 +787,27 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
            
 
           <!-- Right Metrics Column -->
-          <div class="lg:col-span-5 grid grid-cols-2 gap-4 border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
-            <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/40 text-center lg:text-left">
-              <div class="text-2xl sm:text-3xl font-extrabold text-white">4,000+</div>
-              <div class="text-xs sm:text-sm text-slate-400 mt-1">Active Customers</div>
-            </div>
-            <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/40 text-center lg:text-left">
-              <div class="text-2xl sm:text-3xl font-extrabold text-white">99.4%</div>
-              <div class="text-xs sm:text-sm text-slate-400 mt-1">Satisfaction Rate</div>
-            </div>
-            <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/40 text-center lg:text-left">
-              <div class="text-2xl sm:text-3xl font-extrabold text-white">24/7</div>
-              <div class="text-xs sm:text-sm text-slate-400 mt-1">Dedicated Support</div>
-            </div>
-            <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/40 text-center lg:text-left">
-              <div class="text-2xl sm:text-3xl font-extrabold text-white">4.9★</div>
-              <div class="text-xs sm:text-sm text-slate-400 mt-1">Average Rating</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
+         <div class="lg:col-span-5 grid grid-cols-2 gap-4 border-t lg:border-t-0 lg:border-l border-slate-700/60 pt-6 lg:pt-0 lg:pl-8">
+  <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/40 text-center flex flex-col items-center justify-center">
+    <div class="text-2xl sm:text-3xl font-extrabold text-white">4,000+</div>
+    <div class="text-xs sm:text-sm text-slate-400 mt-1">Active Customers</div>
+  </div>
+  
+  <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/40 text-center flex flex-col items-center justify-center">
+    <div class="text-2xl sm:text-3xl font-extrabold text-white">99.4%</div>
+    <div class="text-xs sm:text-sm text-slate-400 mt-1">Satisfaction Rate</div>
+  </div>
+  
+  <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/40 text-center flex flex-col items-center justify-center">
+    <div class="text-2xl sm:text-3xl font-extrabold text-white">100%</div>
+    <div class="text-xs sm:text-sm text-slate-400 mt-1">Hygienic, relaxing, soothing ambiance.</div>
+  </div>
+  
+  <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/40 text-center flex flex-col items-center justify-center">
+    <div class="text-2xl sm:text-3xl font-extrabold text-white">4.9★</div>
+    <div class="text-xs sm:text-sm text-slate-400 mt-1">Average Rating</div>
+  </div>
+</div>
 					</section>
 
 <!-- Reviews Section -->
