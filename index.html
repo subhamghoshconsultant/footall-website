@@ -641,6 +641,17 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
         </optgroup>
       </select>
 
+		<!-- Date Selection -->
+      <div class="mb-4">
+        <label for="dateDropdown" class="block text-left text-sm font-bold text-spa-900 mb-2">Preferred Date:</label>
+        <input 
+          type="date" 
+          id="dateDropdown" 
+          onclick="this.showPicker()" 
+          class="w-full p-3 rounded-xl border border-slate-300 text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-spa-700 shadow-sm cursor-pointer"
+        >
+      </div>
+
       <!-- Time and Duration Selection (Grid Layout) -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         
@@ -692,8 +703,11 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
   <script>
     // Automatically set the minimum date to today so users can't book in the past
     document.addEventListener("DOMContentLoaded", () => {
-      const today = new Date().toISOString().split('T')[0];
-      document.getElementById("dateDropdown").setAttribute("min", today);
+      const dateInput = document.getElementById("dateDropdown");
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute("min", today);
+      }
     });
 
     function bookService() {
@@ -719,7 +733,7 @@ FootAll - Foot Therapy, Building 7, 462, Rajdanga Main Road, beside HDFC Bank, S
       // WhatsApp routing exclusively to the 098314 28224 number
       const phoneNumber = '919831428224';
       
-      // Formatting the multi-line message
+      // Formatting the multi-line message to include the Date
       const message = `Hello FootAll, I would like to book an appointment.\n\n*Service:* ${selectedService}\n*Date:* ${formattedDate}\n*Time:* ${selectedTime}\n*Duration:* ${selectedDuration}`;
       
       // Open WhatsApp with pre-filled message
